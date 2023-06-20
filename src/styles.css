@@ -1,0 +1,265 @@
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+
+/* Header styling */
+.header {
+  background-color: #0F4297;
+  color: white;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.smaller-card {
+  max-width: 200px; /* Adjust the max-width to your desired size */
+}
+
+/* Logo styling */
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+/* Navigation styling */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active {
+  background-color: white;
+  color: #003087;
+}
+
+.nav-link.active {
+  background-color: white;
+  color: #003087;
+}
+
+/* User icon styling */
+.user {
+  color: white;
+  font-size: 24px;
+  margin-left: 20px;
+}
+
+/* Content styling */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+.content-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 3rem;
+	margin-top: auto;
+	border-top:  auto ;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"] {
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+  background-color: #f1f1f1;
+  margin-right: 10px;
+}
+
+.search-container button {
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #40547d;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 16px;
+  background-color: #f5f5f5;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+
+
+
+article.job-card {
+  display: grid;
+  grid-template-columns: 80px auto 150px;
+  grid-template-rows: 40px 10px 35px;
+  width: 1400px;
+  position: relative;
+  border-top: 1px solid #e3e3e3;
+
+  font-family: 'Helvetica';
+  padding: 24px;
+}
+
+article.job-card:hover,
+article.job-card:focus {
+  background-color: rgba(0,166,194,.03);
+    border-color: #b2e4ec;
+}
+
+.company-logo-img {
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  height: 80px;
+  width: 80px;
+  box-sizing: border-box;
+  position: relative;
+  padding: 5px;
+}
+
+.company-logo-img img {
+  max-height: calc(100% - 10px);
+  max-width: calc(100% - 10px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.job-title {
+  grid-area: 1 / 2 / 2 / 3;
+  font-size: 16px;
+  align-self: start;
+  font-weight: 500;
+  margin-top: 5px;
+  padding: 0 24px;
+}
+
+.company-name {
+  grid-area: 2 / 2 / 3 / 3;
+  align-self: center;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 5px;
+  padding: 0 24px;
+}
+
+.skills-container {
+  grid-area: 3 / 2 / 4 / 3;
+  align-self: center;
+  padding-top: 10px;
+  padding: 0 24px;
+}
+
+.skill {
+  display: inline;
+  color: #00a6c2;
+  border-radius: 2px;
+  background-color: rgba(0,166,194,.05);
+  border: 1px solid rgba(0,166,194,.15);
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+
+.apply {
+  grid-area: 1 / 3 / 2 / 4;
+  background-color: #1ab059;
+  color: #fff;
+}
+.save {
+  grid-area: 3 / 3 / 4 / 4;
+  background-color: #fff;
+  border: 1px solid #a4a5a8;
+  color: #777;
+}
+
+
+.user-image {
+  display: flex;
+  align-items: center;
+}
+
+.user-image img {
+  width: 50px; /* Adjust the width as desired */
+  height: 50px; /* Adjust the height as desired */
+  border-radius: 50%; /* Creates a circular shape */
+  object-fit: cover; /* Ensures the image fills the container */
+  margin-left: 10px; /* Adds some spacing between the image and the navigation links */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow effect */
+  transition: transform 0.3s ease; /* Adds a smooth transition effect */
+}
+
+.user-image img:hover {
+  transform: scale(1.1); /* Enlarges the image on hover */
+}
+
+
+
+

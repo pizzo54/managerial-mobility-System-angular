@@ -1,0 +1,8 @@
+.logo-img {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  

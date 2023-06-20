@@ -1,0 +1,78 @@
+
+ 
+
+<body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
+  <header id="header-section">
+    
+    <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+    <div class="container">
+      <div class="navbar-brand-wrapper d-flex w-100">
+       <a routerLink=""> <img src="../../../assets/images/logo.png " alt=""></a> 
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="mdi mdi-menu navbar-toggler-icon"></span>
+        </button> 
+      </div>
+      <div class="collapse navbar-collapse navbar-menu-wrapper" id="navbarSupportedContent">
+        <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+          <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
+            <div  class="navbar-collapse-logo">
+              <img src="../../../assets/images/logo.png" alt="">
+            </div>
+            <button class="navbar-toggler close-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
+            </button>
+          </li>
+          <li class="nav-item">
+  
+            <a routerLink="" class="nav-link " href="#header-section">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li *ngIf="user?.type =='Admin' ||user?.type =='Utilisateur'||user?.type =='Gestionnaire'" class="nav-item">
+            <a routerLink="dashboard" class="nav-link" >Dashboard</a>  
+          </li>
+         
+          <li *ngIf="user?.type =='Admin' " class="nav-item">
+            <a  class="nav-link" routerLink="/user">Users</a>  
+          </li>
+          <li *ngIf="user?.type === 'Utilisateur' || user?.type === 'Gestionnaire'" class="nav-item">
+            <a class="nav-link" routerLink="/poste">Postes</a>  
+          </li>
+          <li *ngIf="user?.type === 'Utilisateur' || user?.type === 'Gestionnaire'" class="nav-item">
+            <a class="nav-link"  routerLink="/Candidature">Candidature</a>  
+          </li >
+          <li *ngIf="user?.type === 'Utilisateur' || user?.type === 'Gestionnaire'"  class="nav-item">
+            <a class="nav-link" routerLink="/nomination">Nominations</a>  
+          </li>
+         
+          <li class="nav-item btn-contact-us pl-4 pl-lg-0">
+           
+            <button *ngIf="!user"  routerLink="/login" class="btn btn-primary" data-toggle="modal" >Se connecter</button>
+            <li class="nav-item btn-contact-us pl-4 pl-lg-0">
+              <button *ngIf="user"  (click)="logout()" class="btn btn-primary" data-toggle="modal"  >LOG OUT</button>
+            
+          
+        </ul>
+      </div>
+    </div> 
+    </nav>   
+  </header>
+
+
+    
+      
+
+
+
+  <router-outlet></router-outlet>
+    
+        
+    
+    
+      <footer class="border-top">
+        <p class="text-center text-muted pt-4">Copyright © 2023<a  class="px-1">Jelaidi ihabe</a>All rights reserved.</p>
+      </footer>
+      <!-- Modal for Contact - us Button -->
+     
+ 
+  
+
+</body>

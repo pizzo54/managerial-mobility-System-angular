@@ -1,0 +1,269 @@
+
+<div class="card-header content-header content-header-intro">
+  
+    <div class="content-header-intro">
+      <a *ngIf="myuser?.type=='Gestionnaire'" data-toggle="modal" data-target="#addposte" > <button type="button" class="btn btn-outline-primary"  >+ Ajouter un Poste  </button></a>
+        
+    </div>
+    
+    <div class="search-container">
+        <form action="#" method="get">
+          <input  (ngModelChange)="SearchUsers(key.value)" #key="ngModel" ngModel type="text" placeholder="Search..." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+   
+
+</div>
+<div class="container">
+    <div class="text-center mb-5">
+    
+
+    </div>
+    <div *ngFor="let poste of p " class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column flex-lg-row">
+          <span class="avatar avatar-text rounded-3 me-4 mb-2">{{poste?.logo}}</span>
+          <div class="row flex-fill">
+            <div class="col-sm-5">
+              <h4 class="h5">{{poste?.intitule}}</h4>
+              <div class="card-body">
+                <h6>Description :</h6>
+              <div >{{poste.description}} </div>
+              </div>
+              <ul class="list-inline m-0"> 
+              
+                <li *ngIf="myuser?.type=='Gestionnaire'" class="list-inline-item">
+                   <a data-toggle="modal" data-target="#editP" > <button (click)="FetchPoste(poste)" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                </li>
+                <li *ngIf="myuser?.type=='Gestionnaire'" class="list-inline-item">
+                    <a  data-toggle="modal" data-target="#DeleteP"> <button  (click)="FetchPoste(poste)" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></a>
+                </li>
+            </ul>
+            </div>
+            <div class="modal fade" id="editP" tabindex="-1" role="dialog" aria-labelledby="editP" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modifier un poste :</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form #Update="ngForm">
+                      <div class="form-group">
+                       
+                        <input type="text" hidden ngModel="{{PS?.id}}" class="form-control" name="id" >
+            
+                        </div>
+                      <div class="form-group">
+                          <label for="ImageUrl">logo</label>
+                          <input type="text" ngModel="{{PS?.logo}}" class="form-control" name="logo" id="ImageUrl" aria-describedby="emailHelp" >
+            
+                          </div>
+                  
+                  <div class="form-group">
+                    <label for="Intitule">Intitule</label>
+                    <input type="text" ngModel="{{PS?.intitule}}" class="form-control" name="intitule" id="Intitule" aria-describedby="emailHelp" >
+                </div>
+                <div class="form-group">
+                  <label for="Dependance">Dependance hierarchique</label>
+                  <input type="text" class="form-control" ngModel="{{PS?.depandenceH}}" name="depandenceH" id="Dependance" aria-describedby="emailHelp" >
+              </div>
+              <div class="form-group">  
+                <label for="Date">Date de vacance</label>
+                <input type="date" class="form-control" ngModel="{{PS?.dateVacance}}" name="dateVacance" id="Date" aria-describedby="emailHelp" >
+            </div>
+            <div class="form-group">
+              <label for="Localite">Localite</label>
+              <input type="text" class="form-control" ngModel="{{PS?.localite}}" name="localite" id="Localite" aria-describedby="emailHelp" >
+            </div>
+            <div class="form-group">
+              <label for="Description">Description</label>
+             
+              <textarea   ngModel="{{PS?.description}}" name="description" id="Description"class="form-control" id="Conditions" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="Conditions">Conditions</label>
+             
+              <textarea   ngModel="{{PS?.conditions}}" name="conditions" id="Conditions" class="form-control" id="Conditions" rows="3"></textarea>
+            </div>
+            </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button id="closeUpdate" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button"  class="btn btn-primary" (click)="UpdatePoste(Update)" ass="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="DeleteP" tabindex="-1" role="dialog" aria-labelledby="DeleteP" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                       <h5 class="modal-title" id="deleteUser">Delete Poste !</h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                       </button>
+                    </div>
+                    <div class="modal-body">
+                       <p>Are you sure you want to delete  {{PS?.intitule}} poste ?</p>
+                       <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                          <button (click)="DeletePoste(id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+          </div>
+          <div class="modal fade bd-example-modal-lg" id="Details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                 
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+               
+                  <div class="container">
+                    <div id="content" class="content p-0">
+                      
+                      <h5 class="title" >{{PS?.intitule}} :</h5>
+                        <div class="profile-container">
+                            <div class="row row-space-20">
+                              
+                    
+                                
+                                    <ul class="profile-info-list">
+                                  
+                                      
+                                    
+                                        <li>
+                                            <div class="field">Dependance hierarchique</div>
+                                            <div class="value">{{PS?.depandenceH}}</div>
+                                        </li>
+                                        <li>
+                                            <div class="field">Date de Vacance :</div>
+                                            <div class="value">{{PS?.dateVacance}}</div>
+                                        </li>
+                                        <li>
+                                            <div class="field">localite :</div>
+                                            <div class="value">{{PS?.localite}}</div>
+                                        </li>
+                                        <li>
+                                          <div class="field">Description :</div>
+                                          <div class="value">
+                                            {{PS?.description}}
+                                          </div>
+                                      </li>
+                                        
+                                        <li>
+                                          <div class="field">Condition :</div>
+                                          <div class="value">{{PS?.conditions}}</div>
+                                      </li>
+                                    
+                                     
+                                   
+        
+                                      
+                                       
+                                    </ul>
+                                </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+            <div class="col-sm-4 py-2"> 
+             
+            </div>
+            <div class="col-sm-3 text-lg-end">
+              <ul class="list-inline m-0">
+            
+                <li class="list-inline-item">
+                <button data-toggle="modal" data-target="#Details" (click)="FetchPoste(poste)" class="btn btn-dark btn-sm" >Details</button> </li>
+                <li class="list-inline-item">
+                 <button routerLink="/Candidature" class="btn btn-success btn-sm" >Postuler</button>   </li>
+                </ul>
+            
+            </div>
+            
+          
+
+        
+          </div>
+        </div>
+      </div>
+    </div>
+   
+   
+  </div>
+  <div class="modal fade" id="addposte" tabindex="-1" role="dialog" aria-labelledby="addposte" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un poste :</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #add="ngForm">
+            <div class="form-group">
+                <label for="ImageUrl">logo</label>
+                <input type="text" ngModel class="form-control" name="logo" id="ImageUrl" aria-describedby="emailHelp" >
+  
+                </div>
+        
+        <div class="form-group">
+          <label for="Intitule">Intitule</label>
+          <input type="text" ngModel class="form-control" name="intitule" id="Intitule" aria-describedby="emailHelp" >
+      </div>
+      <div class="form-group">
+        <label for="Dependance">Dependance hierarchique</label>
+        <input type="text" class="form-control" ngModel name="depandenceH" id="Dependance" aria-describedby="emailHelp" >
+    </div>
+    <div class="form-group">  
+      <label for="Date">Date de vacance</label>
+      <input type="date" class="form-control" ngModel name="dateVacance" id="Date" aria-describedby="emailHelp" >
+  </div>
+  <div class="form-group">
+    <label for="Localite">Localite</label>
+    <input type="text" class="form-control" ngModel name="localite" id="Localite" aria-describedby="emailHelp" >
+  </div>
+  <div class="form-group">
+    <label for="Description">Description</label>
+    <textarea ngModel name="description" class="form-control" id="Description" rows="3"></textarea>
+  
+  </div>
+  <div class="form-group">
+    <label for="Conditions">Conditions</label>
+    <textarea ngModel name="conditions" class="form-control" id="Conditions" rows="3"></textarea>
+    
+  </div>
+  </form>
+       <div>
+        <div class="modal-footer">
+          <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button (click)="AddPoste(add)" type="button" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </div>
+
+      <div *ngIf="p?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+        <div class="alert alert-info" role="alert">
+          <h4 class="alert-heading">Postes non trouvé!</h4>
+          <p>l'application ne contient aucun poste/p>
+        </div>
+        </div>

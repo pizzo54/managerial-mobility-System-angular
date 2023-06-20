@@ -1,0 +1,108 @@
+<div class="card-header content-header content-header-intro">
+  
+  
+   
+    <div class="content-header-actions">
+       
+     
+         <h5>DASHBOARD :</h5>
+        
+    </div>
+   
+
+</div>
+<br><br>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Utilisateur</h6>
+                    <h2 class="text-right"><span>{{user}}</span></h2>
+                   
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Postes Vacant</h6>
+                    <h2 class="text-right"><span>{{poste}}</span></h2>
+                   
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Candidature</h6>
+                    <h2 class="text-right"><span>{{candidature}}</span></h2>
+                  
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Nomination</h6>
+                    <h2 class="text-right"><span>{{nomination}}</span></h2>
+                 
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <h5 class="card-title">Notre Utilisateurs : <span class="text-muted fw-normal ms-2"></span></h5>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="">
+                <div class="table-responsive">
+                    <table  class="table project-list-table table-nowrap align-middle table-borderless">
+                        <thead>
+                            <tr>
+                               
+                                <th scope="col">Name</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Localite</th>
+                                
+                              
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let cand of users">
+                            <tr>
+                                
+                                <td>{{cand.nomU}} {{cand.prenomU}}</td>
+                                <td><span class="badge badge-soft-success mb-0">{{cand.posteActuelle}}</span></td>
+                                <td>{{cand.email}}</td>
+                                <td>{{cand.localiteActuelle}}</td>
+                              
+                                
+                            </tr>
+                           
+                           
+                        
+                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>  

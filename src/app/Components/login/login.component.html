@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    body {
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      outline: none;
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .login-form button:hover {
+      background-color: #007bff;
+    }
+    
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+	
+    <form #log="ngForm" class="login-form">
+      <input required ngModel type="text" placeholder="login" name="login">
+      <input required ngModel type="password" placeholder="Password" name="password">
+      <button (click)="login(log)" type="submit">Login</button>
+    </form>
+    <button type="button" id="ok"   hidden class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Small modal</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+        
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <div class="alert alert-danger" role="alert"   >the login or password that you've entred doesn't match any account.</div> 
+          </div><br>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

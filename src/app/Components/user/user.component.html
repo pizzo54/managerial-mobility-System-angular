@@ -1,0 +1,447 @@
+
+<div class="card-header content-header ">
+  
+  
+   
+    <div class="content-header-actions">
+       
+        <a href="#" class="button">
+            <i class="ph-plus-bold"></i>
+            <a *ngIf="user?.type == 'Admin'" data-toggle="modal" data-target="#addUser" > <button type="button" class="btn btn-outline-primary"  >+ Ajouter un Utlisateur</button></a>
+        </a>
+    </div>
+    <div class="search-container">
+        <form action="#" method="get">
+          <input (ngModelChange)="SearchUsers(key.value)" #key="ngModel" ngModel type="text" placeholder="Search..." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+   </div>
+
+</div>
+<br>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <div *ngFor="let user of u" class="col-md-6 col-xl-3">
+                    <div class="card m-b-30">
+                        <div class="card-body row">
+                            <div class="col-6">
+                                <a href=""><img  src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-fluid rounded-circle w-60"></a>
+                            </div>
+                            <div class="col-6 card-title align-self-center mb-0">
+                                <h5>{{ user.prenomU }}</h5>
+                                <p class="m-0">{{ user.fonction }}</p>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <br><a href="#">{{ user.email }}</a></li>
+                            <li class="list-group-item"><i class="fa fa-phone float-right"></i>Telephone : {{ user.telephone }}</li>
+                          
+                        </ul>
+                        <div class="card-body">
+                            <div class="float-right btn-group btn-group-sm">
+                                <a (click)="FetchUser(user)" href="#" class="btn btn-primary tooltips" data-placement="top" data-toggle="modal" data-target="#edit" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                                <a  (click)="FetchUser(user)"    href="#" class="btn btn-secondary tooltips" data-placement="top" data-toggle="modal" data-target="#DeleteUser" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                            </div>
+                            <a (click)="FetchUser(user)" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#Details" href="#" role="button">Details</a>
+                            
+                        </div>
+                    </div>
+                </div>  
+            
+          
+         
+        
+  
+               
+            
+                
+            </div>
+            
+        </div>
+        
+    </div>
+  
+  
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<br><br>
+
+<div class="modal fade bd-example-modal-lg" id="Details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+       
+          <div class="container">
+            <div id="content" class="content p-0">
+                <div class="profile-header">
+                    <div class="profile-header-cover"></div>
+            
+                    <div class="profile-header-content">
+                        <div class="profile-header-img">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
+                        </div>
+            
+                        <div class="profile-header-info">
+                            <h4 class="m-t-sm">{{us?.nomU}} {{us?.prenomU}}</h4>
+                        
+                            <p class="m-b-sm">{{us?.posteActuelle}}</p>
+                        
+                            
+                           <br><br>
+                        </div>
+                    </div>
+            
+                         
+
+                         
+
+                </div>
+            
+                <div class="profile-container">
+                    <div class="row row-space-20">
+                      
+            
+                        
+                            <ul class="profile-info-list">
+                                <li class="title">PERSONAL INFORMATION</li>
+                                <li>
+                                  <div class="field">Age :</div>
+                                  <div class="value">{{us?.age}} ans</div>
+                              </li>
+                                <li>
+                                    <div class="field">Poste actuelle :</div>
+                                    <div class="value">{{us?.posteActuelle}}</div>
+                                </li>
+                                <li>
+                                  <div class="field">Diplomes :</div>
+                                  <div class="value">{{us?.diplomes}}</div>
+                              </li>
+                                <li>
+                                    <div class="field">Cin :</div>
+                                    <div class="value">{{us?.cin}}</div>
+                                </li>
+                                <li>
+                                    <div class="field">Date de Naissance :</div>
+                                    <div class="value">{{us?.dateNaissance}}</div>
+                                </li>
+                                <li>
+                                    <div class="field">Email :</div>
+                                    <div class="value">{{us?.email}}</div>
+                                </li>
+                                <li>
+                                  <div class="field">Telephone :</div>
+                                  <div class="value">
+                                    {{us?.telephone}}
+                                  </div>
+                              </li>
+                                <li>
+                                    <div class="field">Localite actuelle :</div>
+                                    <div class="value">
+                                        <address class="m-b-0">
+                                          {{us?.localiteActuelle}}
+                                            
+                                        </address>
+                                    </div>
+                                </li>
+                                <li>
+                                  <div class="field">type :</div>
+                                  <div class="value">{{us?.type}}</div>
+                              </li>
+                              <li>
+                                <div class="field">Email :</div>
+                                <div class="value">{{us?.email}}</div>
+                            </li>
+                                <li>
+                                  <div class="field">Situation familiale :</div>
+                                  <div class="value">{{us?.situationFamilial}}</div>
+                              </li>
+                           
+                          
+
+                              
+                               
+                            </ul>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUser" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Ajouter Un Utilisateur</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <form #add="ngForm">
+                    <div class="form-group">
+                        <label for="ImageUrl">ImageUrl</label>
+                        <input type="text" ngModel class="form-control" name="imageUrl" id="ImageUrl" aria-describedby="emailHelp" >
+        
+                        </div>
+                    <div class="form-group">
+                    <label for="Nom">Nom</label>
+                    <input type="text" ngModel class="form-control" name="nomU" id="Nom" aria-describedby="emailHelp" >
+
+                    </div>
+                    <div class="form-group">
+                        <label for="Prenom">Prenom</label>
+                        <input type="text" ngModel class="form-control" name="prenomU" id="Prenom" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                      <label for="Age">Age</label>
+                      <input type="text" ngModel class="form-control" name="age" id="Age" aria-describedby="emailHelp" >
+  
+                  </div>
+                    <div class="form-group">
+                        <label for="Cin">Cin</label>
+                        <input type="text" ngModel class="form-control" name="cin" id="Cin" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" ngModel class="form-control" name="email" id="Email" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="Telephone">Telephone</label>
+                        <input type="number" ngModel class="form-control" name="telephone" id="Telephone" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="Date de Naissance">Date de Naissance</label>
+                        <input type="date" ngModel class="form-control" name="dateNaissance" id="Date de Naissance" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="Login">Login</label>
+                        <input type="text" ngModel class="form-control" name="login" id="Login" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" ngModel class="form-control" name="password" id="Password" >
+                    </div>
+                
+                    <div class="form-group">
+                        <label >type</label><br>
+                        <select class="form-control" aria-label=".form-select-sm example" ngModel name="type">
+                            
+                            <option    id="type" value="Utilisateur">Utilisateur</option>
+                            <option    id="type" value="Gestionnaire">Gestionnaire</option>
+                           
+                          </select>
+                      
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="Fonction">Fonction</label>
+                        <input type="text" ngModel class="form-control" name="fonction" id="Fonction" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="Poste actuelle">Poste actuelle</label>
+                        <input type="text" ngModel class="form-control" name="posteActuelle" id="Poste actuelle" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="Date de Nomination ">Date de Nomination </label>
+                        <input type="date" ngModel class="form-control" name="dateNomination" id="Date de Nomination" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="Localite actuelle">Localite actuelle</label>
+                        <input type="text" ngModel class="form-control" name="localiteActuelle" id="Localite actuelle" aria-describedby="emailHelp" >
+    
+                    </div>
+                    <div class="form-group">
+                    <label for="Situation familiale">Situation familiale</label>
+                    <input type="text" ngModel class="form-control" name="situationFamilial" id="Situation familiale" aria-describedby="emailHelp" >
+  
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="Diplomes">Diplomes</label>
+                    <input type="text" ngModel class="form-control" name="diplomes" id="Diplomes" aria-describedby="emailHelp" >
+  
+                  </div>
+               
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button (click)="AddUser(add)" type="button" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modifier un Utilisateur</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form  #update="ngForm" >
+                <div class="form-group">
+                
+                    <input hidden type="text" ngModel="{{us?.id}}"  class="form-control" name="id" id="ImageUrl" aria-describedby="emailHelp" >
+    
+                    </div>
+                <div class="form-group">
+                    <label for="ImageUrl">ImageUrl</label>
+                    <input type="text" ngModel="{{us?.imageUrl}}"  class="form-control" name="imageUrl" id="ImageUrl" aria-describedby="emailHelp" >
+    
+                    </div>
+                <div class="form-group">
+                <label for="Nom">Nom</label>
+                <input type="text" ngModel="{{us?.nomU}}" class="form-control" name="nomU" id="Nom" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                    <label for="Prenom">Prenom</label>
+                    <input type="text" ngModel="{{us?.prenomU}}" class="form-control" name="prenomU" id="Prenom" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                  <label for="Age">Age</label>
+                  <input type="text" ngModel="{{us?.age}}" class="form-control" name="age" id="Age" aria-describedby="emailHelp" >
+
+              </div>
+                <div class="form-group">
+                    <label for="Cin">Cin</label>
+                    <input type="text" ngModel="{{us?.cin}}" class="form-control" name="cin" id="Cin" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                    <label for="Telephone">Telephone</label>
+                    <input type="number" ngModel="{{us?.telephone}}" class="form-control" name="telephone" id="Telephone" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" ngModel="{{us?.email}}" name="email" class="form-control" id="Email" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                    <label for="Date de Naissance">Date de Naissance</label>
+                    <input type="date" ngModel="{{us?.dateNaissance}}" name="dateNaissance" class="form-control" id="Date de Naissance" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                    <label for="Login">Login</label>
+                    <input type="text" ngModel="{{us?.login}}" name="login" class="form-control" id="Login" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="text" ngModel="{{us?.password}}" name="password" class="form-control" id="Password" >
+                </div>
+            
+                <div class="form-group">
+                    <label for="type">type</label><br>
+                    <select class="form-control" ngModel="{{us?.type}}" aria-label=".form-select-sm example" ngModel name="type">
+                            
+                      <option   id="type" value="Utilisateur">Utilisateur</option>
+                      <option    id="type" value="Gestionnaire">Gestionnaire</option>
+                     
+                    </select>
+                   
+
+                </div>
+                <div class="form-group">
+                    <label for="Fonction">Fonction</label>
+                    <input type="text" ngModel="{{us?.fonction}}" name="fonction" class="form-control" id="Fonction" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                    <label for="Poste actuelle">Poste actuelle</label>
+                    <input type="text" ngModel="{{us?.posteActuelle}}" name="posteActuelle" class="form-control" id="Poste actuelle" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                    <label for="Date de Nomination ">Date de Nomination </label>
+                    <input type="date" ngModel="{{us?.dateNomination}}" name="dateNomination" class="form-control" id="Date de Nomination" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                    <label for="Localite actuelle">Localite actuelle</label>
+                    <input type="text" ngModel="{{us?.localiteActuelle}}" name="localiteActuelle" class="form-control" id="Localite actuelle" aria-describedby="emailHelp" >
+
+                </div>
+                <div class="form-group">
+                <label for="Situation familiale">Situation familiale</label>
+                <input type="text" class="form-control" name="situationFamilial" ngModel="{{us?.situationFamilial}}" id="Situation familiale" aria-describedby="emailHelp" >
+
+              </div>
+           
+              <div class="form-group">
+                <label for="Diplomes">Diplomes</label>
+                <input type="text" class="form-control" name="diplomes" ngModel="{{us?.diplomes}}" id="Diplomes" aria-describedby="emailHelp" >
+
+              </div>
+              <div class="modal-footer">
+                <button id="closeUpdate"  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button (click)="UpdateUser(update)" type="button" class="btn btn-primary">Save changes</button>
+              </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+
+ 
+  </div>
+
+
+
+
+  <div class="modal fade" id="DeleteUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="deleteUser">Delete User</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <p>Are you sure you want to delete user {{us?.login}} ?</p>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button (click)="DeleteUser(id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+  <div *ngIf="u?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">Utilisateur non trouvé!</h4>
+      <p>l'application ne contient aucun utilisateur</p>
+    </div>
+    </div>
