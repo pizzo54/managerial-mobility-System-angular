@@ -1,6 +1,8 @@
 
 
 Description:
+
+
 Ministry Mobility Manager is a robust web application designed to streamline and facilitate internal mobility processes within the Ministry of Transport and Logistics. Developed using Angular for the front end and Spring Boot for the back end (leveraging Spring JPA, Spring Security, and Spring MVC), this application caters to the needs of ministry employees seeking either horizontal or vertical mobility within the organization.
 
 Key Features:
