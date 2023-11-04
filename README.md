@@ -10,11 +10,14 @@ Key Features:
 User Roles:
 
 Admin: Responsible for creating and managing user accounts.
+
 Ministry Employees: Users seeking mobility, allowing them to apply for horizontal or vertical movements.
+
 Human Resources Workers: Tasked with reviewing and managing job applications, accepting or declining based on candidate suitability.
 Secure Authentication:
 
 Implemented with Spring Security to ensure robust user authentication and authorization.
+
 Job Application Workflow:
 
 Ministry employees can submit applications for horizontal or vertical mobility.
@@ -22,6 +25,7 @@ Human Resources workers can efficiently review applications, making informed dec
 User-Friendly Interface:
 
 Angular provides a modern and intuitive user interface for seamless navigation and a positive user experience.
+
 Data Management:
 
 Utilizes Spring JPA for effective data management, ensuring data consistency and reliability.
